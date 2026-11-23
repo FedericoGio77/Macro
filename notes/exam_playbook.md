@@ -24,7 +24,8 @@ The graph parts want the standard picture with the points labelled by the number
 Go exercise by exercise, part by part, in the order of the paper: Exercise 1 a), b), c), then Exercise 2 a), b), …
 For each part:
 
-1. Copy the question line (e.g. **b) Assume that G diminishes to 60. Find equilibrium values of …**).
+1. **Do not copy the question.** Head each part only with its number: **1.1**, **1.2**, **1.3**, **2.1**, **2.2** …
+   (exercise number . part number). Below the number: only the solution and what the question asks for, nothing else.
 2. If it asks to "discuss the meaning/logic", start with the definitions in words
    (e.g. "The IS equation represents all the combinations of Y and i for which the goods market is in equilibrium.").
 3. Show the full calculation: the equation with numbers, the step collecting Y, the multiplier fraction, the result,
