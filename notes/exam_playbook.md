@@ -19,6 +19,24 @@ definition of each curve, then the causal chain, then what the central bank does
 
 The graph parts want the standard picture with the points labelled by the numbers from the exercise.
 
+## Answer format the user wants (exactly like the mock exam solutions)
+
+Go exercise by exercise, part by part, in the order of the paper: Exercise 1 a), b), c), then Exercise 2 a), b), …
+For each part:
+
+1. Copy the question line (e.g. **b) Assume that G diminishes to 60. Find equilibrium values of …**).
+2. If it asks to "discuss the meaning/logic", start with the definitions in words
+   (e.g. "The IS equation represents all the combinations of Y and i for which the goods market is in equilibrium.").
+3. Show the full calculation: the equation with numbers, the step collecting Y, the multiplier fraction, the result,
+   then every other variable the question asks for, each on its own line (`Y_D = … = 352`, `C = … = 256`).
+   Say what you substitute ("Substitute the LM into the IS:", "To find Ms set Ms/P = Md/P with P = 1:").
+4. Answer only what the question asks, but answer all of it (if it asks for money supply, give M^s).
+5. Graph parts: draw the graph right there in that part, in the house style, then the comment paragraph
+   (adjustment / economic intuition: causal chain + money market + what the central bank does).
+6. Theory extras the solutions add when relevant (e.g. the IS solved for i with its slope and intercept when t changes).
+
+Write the solutions in English (exam language); talk to the user in Bulgarian.
+
 ## Mock exam: the four exercise types
 
 | Ex. | Type | What to compute | Graph |
@@ -45,8 +63,25 @@ Key facts the solutions use:
 
 ## Module 4: open economy (Mundell-Fleming)
 
-Lecture 1 of Module 4 was not in the material sent; these are the pieces that were.
+**Lecture 1: real and financial markets in open economies**
+- Nominal rate "uncertain for certain": `E_{$,€} = 1.41` means 1.41 USD per euro. E ↑ = appreciation, E ↓ = depreciation; `%ΔE = (E_{t+1} − E_t)/E_t`.
+- **Real exchange rate** `ε = E·P/P^F`. ε = 1 is PPP. Example: flash drive 0.48 €, 0.42 $, E = 0.875 → ε = 0.48·0.875/0.42 = 1.
+  Price in Europe 0.50 € → ε = 1.041 (real appreciation: X ↓, IM ↑, CA worsens). E falls to 0.8 → ε = 0.914 (real depreciation: X ↑, IM ↓, CA improves).
+- NEER/REER: trade-weighted effective rates (a competitiveness indicator).
+- `IM = IM(Y, ε)` (+, +), linear `IM = im1·Y + im2·ε`; `X = X(Y^F, ε)` (+, −), linear `X = x1·Y^F − x2·ε`.
+- Demand: `Z = C + I + G + X − IM/ε`. Imports are divided by ε to express them in domestic goods (`P^F·IM/(E·P)`).
+- Equilibrium: `Y = 1/(1 − c1(1 − t) − d1 + im1/ε) · [c0 + G + I0 − d2·i + x1·Y^F − x2·ε − im2]`.
+  The multiplier is smaller (part of each round leaks abroad). Y^F ↑ shifts Z up and IS right; ε changes both the intercept and the slope.
+- In the 45° diagram: slope of Z = `c1(1 − t) + d1 − im1/ε`, intercept = autonomous spending.
+- **NX = X − IM/ε = x1·Y^F − x2·ε − (im1·Y + im2·ε)/ε**, decreasing in Y (the NX line in Y slopes down).
+  G ↑: Y ↑, NX ↓ (move along the NX line). Y^F ↑: Y ↑ and NX ↑ (NX line shifts up by x1·ΔY^F).
+- `∂NX/∂ε = ∂X/∂ε − (1/ε)·∂IM/∂ε + IM/ε²`: two negative quantity effects, one positive price effect.
+  With rigid X and IM an appreciation can improve NX. **Marshall-Lerner**: if X and IM are elastic enough, a depreciation raises NX and shifts IS right (Y ↑ and NX ↑).
+- Why depreciation can hurt: purchasing-power effect, foreign-currency debt effect (Argentina 2001: foreign debt tripled).
+- **Balance of payments**: CA = goods + services + investment income + unilateral transfers; KA = capital inflows − outflows; `BP = CA + KA − ΔRes = 0`. A CA deficit is financed by KA > 0 or ΔRes < 0.
+- Standard two-panel graph: IS-LM on top (i, Y), NX line below (NX, Y) with A and B aligned vertically.
 
+**Lectures 2–3 and the case studies**
 - **Open-economy IS**: `Y = 1/(1 − c1(1 − t) − d1 + im1/ε) · h[A, i, ε, Y^F]`, LM: `i = ī`.
 - **Fixed exchange rate**: the central bank covers excess demand/supply of its currency with reserves.
   NX > 0 → reserves ↑ and money ↑; NX < 0 → reserves ↓ and money ↓. **Sterilization** offsets this with open-market operations (limited by reserves / domestic assets held).
