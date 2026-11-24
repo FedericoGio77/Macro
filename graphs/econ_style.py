@@ -29,23 +29,29 @@ plt.rcParams.update({
 })
 
 
-def figure(xlabel, ylabel, caption=None, size=(7.5, 7.5), ncols=1):
-    """Card-style figure. Returns (fig, axes); axes is a list when ncols > 1."""
-    fig, axes = plt.subplots(1, ncols, figsize=size)
-    axes = [axes] if ncols == 1 else list(axes)
+def figure(xlabel, ylabel, caption=None, size=(7.5, 7.5), ncols=1, nrows=1, xaxis_y=None):
+    """Card-style figure. Returns (fig, axes); axes is a flat list when there are several panels.
+
+    xaxis_y: per panel, the height (0..10) of the horizontal axis, e.g. 5 for a Phillips-curve
+    panel where π − π^e can be negative.
+    """
+    n = ncols * nrows
+    fig, axes = plt.subplots(nrows, ncols, figsize=size, squeeze=False)
+    axes = list(axes.flat)
     fig.patch.set_facecolor(CARD)
-    labels = [(xlabel, ylabel)] * ncols if isinstance(xlabel, str) else list(zip(xlabel, ylabel))
-    for ax, (xl, yl) in zip(axes, labels):
+    labels = [(xlabel, ylabel)] * n if isinstance(xlabel, str) else list(zip(xlabel, ylabel))
+    xaxis_y = xaxis_y or [0] * n
+    for ax, (xl, yl), y0 in zip(axes, labels, xaxis_y):
         ax.set_facecolor(CARD)
         for s in ax.spines.values():
             s.set_visible(False)
         ax.set_xticks([]); ax.set_yticks([])
         ax.set_xlim(0, 10); ax.set_ylim(0, 10)
-        ax.annotate("", xy=(10.3, 0), xytext=(0, 0), annotation_clip=False,
+        ax.annotate("", xy=(10.3, y0), xytext=(0, y0), annotation_clip=False,
                     arrowprops=dict(arrowstyle="-|>", color=INK, lw=1.6, mutation_scale=18))
         ax.annotate("", xy=(0, 10.3), xytext=(0, 0), annotation_clip=False,
                     arrowprops=dict(arrowstyle="-|>", color=INK, lw=1.6, mutation_scale=18))
-        ax.text(10.2, -0.55, xl, ha="center", va="top", fontsize=14)
+        ax.text(10.2, y0 - 0.55, xl, ha="center", va="top", fontsize=14)
         ax.text(0.25, 10.3, yl, ha="left", va="center", fontsize=14)
     lines = 0
     if caption:
@@ -57,8 +63,8 @@ def figure(xlabel, ylabel, caption=None, size=(7.5, 7.5), ncols=1):
         fig.text(0.07, 0.035 + 0.045 * lines * 7.5 / size[1], "\n".join(wrapped),
                  fontsize=16, va="top", linespacing=1.5)
     bottom = 0.1 + (0.05 * lines + 0.03) * 7.5 / size[1] if caption else 0.08
-    fig.subplots_adjust(left=0.1, right=0.93, top=0.9, bottom=bottom, wspace=0.25)
-    return fig, (axes[0] if ncols == 1 else axes)
+    fig.subplots_adjust(left=0.13, right=0.93, top=0.93, bottom=bottom, wspace=0.25, hspace=0.3)
+    return fig, (axes[0] if n == 1 else axes)
 
 
 def line(ax, x, y, color=NAVY, lw=2.4, label=None, at=-1, dx=0.1, dy=0.15, ha="left", **kw):
